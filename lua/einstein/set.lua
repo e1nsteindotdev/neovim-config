@@ -1,6 +1,12 @@
 vim.cmd("highlight Function cterm=bold gui=bold")
 vim.cmd("highlight Keyword cterm=bold gui=bold")
 
+vim.diagnostic.config({
+	virtual_text = {
+		source = "always", -- "if_many" to show only if multiple sources
+	},
+})
+
 -- set the indentation in php
 vim.cmd("filetype indent on")
 vim.api.nvim_create_autocmd("FileType", {
@@ -45,6 +51,10 @@ vim.opt.scrolloff = 10
 vim.opt.hlsearch = true
 vim.opt.tabstop = 2
 vim.opt.laststatus = 3
+
+vim.opt.tabstop = 2 -- Number of visual spaces per TAB
+vim.opt.shiftwidth = 2 -- Number of spaces to use for each step of (auto)indent
+vim.opt.expandtab = true -- Use spaces instead of tabs
 
 vim.api.nvim_create_user_command("LspClients", function()
 	local bufnr = vim.api.nvim_get_current_buf()

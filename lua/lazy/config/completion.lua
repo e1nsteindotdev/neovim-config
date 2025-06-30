@@ -39,14 +39,15 @@ cmp.setup({
 			group_index = 0,
 		},
 		-- { name = "supermaven" },
-		{ name = "nvim_lsp" },
+		{ name = "nvim_lsp", priority = 100000 },
+		{ name = "luasnip", priority = 10 },
 		{ name = "path" },
 		{ name = "buffer" },
 	},
 	mapping = {
 		["<C-n>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
 		["<C-p>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
-		["<CR>"] = cmp.mapping(
+		["<C-y>"] = cmp.mapping(
 			cmp.mapping.confirm({
 				behavior = cmp.ConfirmBehavior.Insert,
 				select = true,
